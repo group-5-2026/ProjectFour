@@ -4,3 +4,15 @@ CSS for the Project 4, Problem 2 States component
 Since CSS uses a global name space for classes we should use names starting with
 states- here.
 */
+
+.states-list {
+    background: whitesmoke;
+    padding: 20px;
+    list-style-type: circle;
+}
+
+.states-list li {
+    background: ghostwhite;
+    color: darkblue;
+    margin: 5px;
+}
