@@ -1,0 +1,18 @@
+div.site-header {
+    font-size: 40pt;
+    font-family: Verdana, sans-serif;
+    transition: 0.6s ease-in-out;
+    border: green dashed 3px;
+    padding: 12px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+div.site-header:hover {
+    transform: scale(1.1);
+}
+
+div.header-gradient {
+    height: 100x;
+    background-image: linear-gradient(to right, lightblue, white);
+}
