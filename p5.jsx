@@ -1,4 +1,5 @@
-import { HashRouter, Route, Link } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './styles/main.css';
 import { HashRouter, Route, Link } from "react-router-dom";
 import Header from './components/header/Header';
@@ -11,19 +12,44 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-  <HashRouter>
-    <title>Class Project</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="modelData/example.js"></script>
-    <script src="modelData/states.js"></script>
-  </HashRouter>,
+    <HashRouter>
+        <div className="container">
+            <div className="menu"><Link to="/example">Example</Link></div>
+            <div className="menu"><Link to="/states">States</Link></div>
+        </div>
+        <Route path="/states" component={States} />
+        <Route path="/example" component={Example} />
+    </HashRouter>,
     document.getElementById('reactapp')
 );
 
-<body>
-    <div id="reactappHeader"></div>
-    <div id="reactapp"></div>
-    <script src="compiled/p5.bundle.js"></script>
-</body>
+ class Toggle extends React.Component {
+     constructor(props) {
+         super(props);
+         this.state = {isToggleOn: true};
+         this.handleClick = this.handleClick.bind(this);
+     }
 
-</html>
+     handleClick() {
+         this.setState(prevState => ({
+             isToggleOn: !prevState.isToggleOn
+         }));
+    }
+
+     render() {
+         return (
+             <div className="container">
+                 <button onClick={this.handleClick}>
+                     {this.state.isToggleOn ? 'Switch to States' : 'Switch to Example'}
+                 </button>
+                 <hr />
+                 {this.state.isToggleOn ? <Example /> : <States />}
+             </div>
+         );
+     }
+ }
+
+ ReactDOM.render(
+    <Toggle />,
+     document.getElementById('reactapp')
+);
